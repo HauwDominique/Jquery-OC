@@ -1,0 +1,59 @@
+<!doctype html> lorsqu’on associe l’événement au nom de la méthode appelée
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>29 - Désactiver une méthode de gestion événementielle </title>
+</head>
+<body>
+    Cliquez sur l'image après avoir activé le clic<br />
+    <img src="images/cheval.jpg" id='image'><br />
+    <button id="activer">Activer le clic</button>
+    <button id="desactiver">Désactiver le clic</button>
+
+<script src="jquery.js"></script>
+<script>
+    $(function () {
+
+        function traitement(){
+            alert('image cliquée');
+        };
+
+        function traitement2(){
+            $('img').css('border', 'solid 5px black');
+        }
+        //
+        // $('#activer').on('click', function () {
+        //     $('img').click(traitement);
+        // });
+
+        $('#desactiver').on('click', function () {
+            $('img').off('click', traitement);
+        });
+
+        // $('#activer').on('click', function () {
+        //     $('img').click(traitement2);
+        // })
+        //
+        // $('#desactiver').on('click', function () {
+        //     $('img').off('click', traitement2);
+        //     $('img').css('border', 'none');
+        // })
+
+        function border() {
+            $(this).css('border', 'solid 4px blue');
+        }
+
+        $('#activer').on('click', function () {
+            $('img').click(border);
+        });
+        $('#desactiver').on('click', function () {
+            $('img').css('border', 'none');
+            $('img').off('click', border());
+        })
+    })
+</script>
+</body>
+</html>

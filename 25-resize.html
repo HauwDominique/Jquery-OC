@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Resize()</title>
+</head>
+
+<body>
+    <span id="resultat"></span>
+
+<script src="jquery.js"></script>
+<script>
+    $(function () {
+
+        // $(window).resize(function () {
+        //     var taille = 'Taille de la fenetre : ' + $(window).width() + 'px / ' + $(window).height() + 'px';
+        //     $('#resultat').text(taille);
+        // });
+
+        $(window).resize(function () {
+            $('#resultat').text('largeur fenetre : ' + $(this).width() + ' - hauteur : ' + $(this).height());
+        })
+
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="http://fr.allfont.net/allfont.css?fonts=courier-new" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8">
+    <title>Mise en forme</title>
+    <style type="text/css">
+        body{
+            font-family: helvetica, arial,'Courier New';
+        }
+        #contenu
+        {
+            width: 500px;
+            height: 450px;
+            border: 1px black solid;
+            float: left;
+            margin-right: 10px;
+            overflow-y: auto;
+        }
+        #controles
+        {
+            width: 300px;
+            height: 450px;
+            border: 1px black solid;
+            float: left;
+        }
+        #controles div{
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+        label{
+            float: left;
+            width: 140px;
+        }
+        #image
+        {
+            text-align: center;
+        }
+        img{
+            display: inline-block;
+            height: 80px;
+        }
+        p
+        {
+            padding-left: 5px;
+            padding-right: 5px;
+            font-family: 'Times New Roman';
+        }
+        .fontColor{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="contenu">
+    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. </p>
+    <div id="image"><img src="images/chien.jpg"></div>
+    <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. </p>
+    <p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. </p>
+</div>
+<div id="controles">
+    <div>
+        <label for="couleur-fond">Couleur de fond</label>
+        <select id="couleur-fond">
+            <option value="#FFFFFF">Blanc</option>
+            <option value="#9FFEF1">Bleu</option>
+            <option value="#9FFECE">Vert</option>
+            <option value="#FAFE9F">Jaune</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="texte">Texte</label>
+        <select id="texte">
+            <option value="Normal">Normal</option>
+            <option value="Gras">Gras</option>
+            <option value="Italique">Italique</option>
+            <option value="Souligne">Souligné</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="police">Police</label>
+        <select id="police">
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Arial">Arial</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="police-prem-phrase">Police 1e phrase</label>
+        <select id="police-prem-phrase">
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Arial">Arial</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="prem-car-phrases">Prem caract phrases</label>
+        <select id="prem-car-phrases">
+            <option value="Normal">Normal</option>
+            <option value="Gras">Gras</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="mot">Mot en rouge</label>
+        <input type="text" id="mot" size="2">
+        <button id="couleurMot">OK</button>
+    </div>
+
+    <div>
+        <label for="bordure-images">Bordure images</label>
+        <select id="bordure-images">
+            <option value="Rien">Rien</option>
+            <option value="Simple">Simple</option>
+            <option value="Double">Double</option>
+        </select>
+    </div>
+
+    <div>
+        <button id="raz">RAZ formulaire</button>
+    </div>
+</div>
+
+<script src="jquery.js"></script>
+<script>
+
+    $(function () {
+
+        //    01 - Modification de la couleur de fond en utilisant la valeur qui se trouve dans l'attribut « value » de la balise <option> choisie
+
+        $('#couleur-fond').on('mouseup', function () {
+            var coulFond = $('#couleur-fond').val();
+            $('#contenu').css({'background-color' : coulFond});
+
+        });
+
+    //   2 - Modification de l'attribut de tout le texte.
+
+        $('#texte').change(function () {
+            var text = $('#texte option:selected').val();
+
+            if(text == 'Normal') {$('p').css({'font-weight': 'normal', 'font-style': 'normal', 'text-decoration': 'none'})};
+            if(text == 'Gras') {$('p').css('font-weight', 'bold')};
+            if(text == 'Italique') {$('p').css('font-style', 'italic')};
+            if(text == 'Souligne') {$('p').css('text-decoration', 'underline')};
+        });
+
+    //    3 - Modification de la police de tout le texte.
+
+        $('#police').change(function () {
+            var typo = '"' + $('#police option:selected').val() + '"';
+            console.log(typo);
+
+            $('#contenu p').css('font-family', typo);
+        });
+
+    //    4 - Modification de la police de la première phrase.
+
+        $('#police-prem-phrase').change(function () {
+            var typoFirst = $('#police-prem-phrase option:selected').val();
+            $('#contenu p:first').css('font-family', typoFirst);
+        });
+
+    //    5 - Modification des caractéristiques du premier caractère de chaque phrase.
+        $('#prem-car-phrases').change(function () {
+            var pcp = $('#prem-car-phrases option:selected').val();
+
+            if (pcp == 'Gras') {
+                $('p').each(function() {
+                    var tableau = $(this).text().split('. ');
+                    if (tableau.length == 0) {}
+                    else {
+                        var tableau2 = $.map(tableau, function(el, ind) {
+                            if (el[0] != null) return '<b>' + (el[0]) + '</b>' + el.substring(1) + '. ';
+                        });
+                        $(this).html(tableau2.join(''));
+                    }
+                });
+            };
+            if (pcp == 'Normal') {
+                $('p').each(function() {
+                    var unPar = $(this).html();
+                    if (unPar.indexOf('<img') == -1)
+                        console.log($(this).text());
+                        $(this).text($(this).text());
+                });
+            };
+        });
+
+    //    6 - Mot en rouge : Écriture en caractères rouges du mot spécifié dans le premier paragraphe.
+    //    Par exemple, si l'utilisateur tape « 10 » dans la zone de texte, le dixième mot du premier paragraphe doit apparaître en caractères rouges.
+
+        $('#couleurMot').on('click', function () {
+            var mot = $('#mot').val();
+            var tableau = $('p:first').text().split(' ');
+            var tableau2 = $.map(tableau, function (el, ind) {
+                if(ind+1 == mot) {return ('<span class="fontColor">' + el + '</span>')}
+                else {return el};
+            });
+            $('p:first').html(tableau2.join(' '));
+        });
+
+    //    7 - Affecter une bordure aux images.
+
+        $('#bordure-images').change(function () {
+            var border = $('#bordure-images option:selected').val();
+            console.log(border);
+
+            if(border == 'Simple') {
+                $('img').css('border', 'solid black 2px');
+            } else if(border == 'Double') {
+                $('img').css('border', 'double black 4px');
+            } else {
+                $('img').css('border', 'none');
+            }
+        });
+
+    //    8 - Remettre à zéro le formulaire et la mise en forme de la première balise <div>.
+
+        $('#raz').on('click', function () {
+            location.reload();
+        })
+
+
+
+
+    });
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>49 - Arrêter une animation </title>
+    <style>
+        button{
+            margi:.5em;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="stopFin">Stop et fin</button>
+    <button id="stopAnnuleFin">Stop, annule et fin</button>
+    <button id="stop">Stop</button>
+    <button id="reprise">Reprise</button><br /><br />
+    <img src="images/chien.jpg" style="position: relative;">
+
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+
+            $('img').animate({left: '+=500'}, 2000)
+                    .animate({top: '+=300'}, 2000);
+
+            $('#stopFin').on('click', function () {
+                $('img').stop(false, true);
+            });
+
+            $('#stopAnnuleFin').on('click', function () {
+                $('img').stop(true, true);
+            });
+
+            $('#stop').on('click', function () {
+                $('img').stop(true, false);
+            });
+
+            $('#reprise').on('click', function () {
+                $('img').css({'top': '0', 'left': '0'}, 500);
+                $('img').animate({left: '+=500'}, 2000)
+                    .animate({top: '+=300'}, 2000);
+            });
+
+        })
+    </script>
+</body>
+</html>

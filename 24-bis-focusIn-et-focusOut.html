@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FocusIn et FocusOut</title>
+</head>
+<body>
+    <form>
+        Cliquez sur les zones de texte<p>
+        <fieldset id="premier">
+            <legend>Premier groupe</legend>
+            <input type="text" class="f" id="Zone-de-texte-1"><p>
+            <input type="text" class="f" id="Zone-de-texte-2"><br />
+        </fieldset>
+
+        <fieldset id="deuxieme">
+            <legend>Deuxième groupe</legend>
+            <input type="text" class="f" id="Zone-de-texte-3"><p>
+            <input type="text" class="f" id="Zone-de-texte-4"><br />
+        </fieldset>
+    </form><br/>
+
+    Focus : <span id="resultat"></span><br/>
+    Perte de focus : <span id="resultat2"></span>
+
+<script src="jquery.js"></script>
+<script>
+    $(function () {
+
+        // $('fieldset').focusin(function () {
+        //     $('#resultat').text($(this).attr('id'));
+        // });
+        //
+        // $('fieldset').focusout(function () {
+        //     $('#resultat2').text($(this).attr('id'));
+        // });
+
+        $('fieldset').focusin(function () {
+            $('#resultat').text($(this).attr('id'));
+        });
+        $('fieldset').focusout(function (e) {
+            $('#resultat2').text('sur le ' + $(this).attr('id') + ' avec l\'action : ' + e.type);
+        })
+        
+    })
+</script>
+</body>
+</html>

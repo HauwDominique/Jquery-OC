@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>84-création du plugin Rebond</title>
+</head>
+<style type="text/css">
+    img {
+        position: absolute;
+        width: 20px;
+    }
+
+    #balle {
+        top: 250px;
+        left: 100px;
+    }
+</style>
+<body>
+
+<img id="balle" src="images/balle-tennis.jpg">
+<button id="action">Cliquez ici pour utiliser le plugin rebond</button>
+
+
+<script
+        crossorigin="anonymous"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="js/rebond.js"></script>
+<script>
+    $(function () {
+        $('#action').click(function () {
+            $('#balle').rebond(20, 225);
+        });
+    })
+</script>
+</body>
+</html>

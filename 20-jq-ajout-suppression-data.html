@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajout et suppression de data</title>
+    <style>
+        div {
+            margin: 2px;
+            color: blue;
+        }
+        span {
+            color: red;
+        }
+        </style>
+</head>
+
+<body>
+    <div>value1 before creation:<span></span></div>
+    <div>value1 after creation: <span></span></div>
+    <div>value1 after removal: <span></span></div>
+    <div>value2 after removal: <span></span></div>
+
+    <script src="jquery.js"></script>
+    <script>
+        $(function() {
+            console.log($('div').text());
+
+            $('span').eq(0).text("" + $('div').data('test1'));
+            $('div').data("test1", 'Value-1');
+
+            $('span').eq(1).text("" + $('div').data('test1'));
+            $('div').data('test2', 'Value-2');
+            $('span').eq(2).text("" + $('div').data('test2'));
+
+            console.log($('div').data());
+            $('div').removeData('test2');
+
+            $('span').eq(3).text("" + $('div').data('test2'));
+
+
+            var div4 = $('div').eq(3).data('test4', 'toto');
+            $('div').eq(3).text(div4.data('test4'));
+            console.log($('div')[3]);
+
+
+        });
+    </script>
+</body>
+</html>

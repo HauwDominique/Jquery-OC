@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Position et taille</title>
+    <style type="text/css">
+        #parent {
+            width: 300px;
+            height:300px;
+            position: absolute;
+            left: 200px;
+            top: 100px;
+            background-color: yellow;
+        }
+
+        #enfant {
+            width: 100px;
+            height:100px;
+            position: absolute;
+            left: 100px;
+            top: 150px;
+            background-color: red;
+        }
+        span {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="parent">
+        Texte dans le parent
+        <div id="enfant">
+            Texte dans l'enfant
+        </div>
+    </div>
+    <span id="resultat"></span>
+    <span id="resultat2"></span>
+    <span id="resultat3"></span>
+
+
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+
+            var offParent = $('#parent').offset();
+            var offEnfant = $('#enfant').offset();
+            var posParent = $('#parent').position();
+            var posEnfant = $('#enfant').position();
+
+            $('#resultat').text('offParent : x ' + offParent.left + '-  y : ' + offParent.top + ' / offEnfant : x ' + offEnfant.left + ' - y : ' + offEnfant.top)
+            $('#resultat2').text('posParent : x ' + posParent.left + '-  y : ' + posParent.top + ' / posEnfant : x ' + posEnfant.left + ' - y : ' + posEnfant.top)
+
+            posEnfant.top = 100;
+            posEnfant.left = 100;
+            $('#enfant').offset(posEnfant);
+
+            $('#resultat3').text('posParent : x ' + posParent.left + '-  y : ' + posParent.top + ' / posEnfant : x ' + posEnfant.left + ' - y : ' + posEnfant.top);
+
+
+        })
+    </script>
+</body>
+</html>

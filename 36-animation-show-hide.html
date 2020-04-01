@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>36-animation show et hide</title>
+</head>
+<body>
+
+    <button id="affiche">Faire apparaître les lignes paires</button>
+    <button id="cache">Faire disparaître les lignes paires</button><br />
+    <table border>
+        <tr><td>a</td><td>b</td><td>c</td></tr>
+        <tr><td>d</td><td>e</td><td>f</td></tr>
+        <tr><td>g</td><td>h</td><td>i</td></tr>
+        <tr><td>j</td><td>k</td><td>l</td></tr>
+        <tr><td>m</td><td>n</td><td>o</td></tr>
+    </table>
+
+    <script src="jquery.js">
+    </script>
+
+    <script>
+        $(function () {
+            $('tr:even').css({'background-color' : 'yellow'});
+            $('td').css({ 'width': '100px', 'text-align' : 'center'})
+
+            $('#affiche').on('click', function () {
+                $('tr:even').show(2000);
+            });
+
+            // $('#cache').on('click', function () {
+            //     $('tr:even').hide('slow', 'linear');
+            // });
+
+            $('#cache').on('click', function () {
+                $('tr:even').fadeOut('slow', 'linear');
+            })
+        });
+        </script>
+</body>
+</html>

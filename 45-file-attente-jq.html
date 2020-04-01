@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>45 - files d’attente Jquery  objet</title>
+    <style>
+        button{
+            margin :.5em;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="enchainer">Enchaîner les animations</button>
+    <button id="nePasEnchainer">Ne pas enchaîner les animations</button><br />
+    <button id="executerEnMemeTemps">Exécuter les animations en même temps</button>
+    <button id="etatInitial">État initial</button><br /><br />
+    <img src="images/girafe.jpg" style="border: 2px black solid;">
+
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+
+            $('#enchainer').on('click', function () {
+                $('img').animate({'border-width': '100', 'border-radius': '50%'}, 1500)
+                        .animate({'width': '-=100'}, 1500)
+                        .animate({'width': '200'}, 1500);
+            });
+
+            $('#nePasEnchainer').on('click', function () {
+                $('img').animate({ 'border-width': '100'}, {queue: false, duration: 1500})
+                        .animate({ 'width': '-=100'}, 1500);
+            });
+
+            $('#executerEnMemeTemps').on('click', function () {
+                $('img').animate({ 'border-width': '100', 'width': '-=100'}, 1500);
+            });
+
+            $('#etatInitial').on('click', function () {
+                $('img').css({ 'border-width': '2px', 'width': '200', 'border-radius': '0'});
+            })
+
+
+        })
+    </script>
+</body>
+</html>

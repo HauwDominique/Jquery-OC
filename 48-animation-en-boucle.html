@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>48 - Répéter une animation sans fin</title>
+    <style type="text/css">
+        #balle {
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            border: black 2px solid;
+            border-radius: 10px;
+            position: relative;
+            margin:.5em;
+        }
+        button{
+            margin:.5em;
+        }
+    </style>
+</head>
+<body>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <div id="balle"></div>
+
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+
+            // function bis(){
+            //     $('#balle').animate({left: '+=200'}, 'slow')
+            //
+            //         .animate({left: '-=200'}, 'slow', bis);
+            // };
+            //
+            // $('#start').on('click', function () {
+            //     bis();
+            // });
+            //
+            // $('#stop').on('click', function () {
+            //     $('#balle').stop();
+            //     $('#balle').animate({left: '0'});
+            // });
+
+        //  Avec la méthode setInterval()
+            function repeat(){
+                $('#balle').animate({left: '+=200'}, 'slow')
+                            .animate({left: '-=200'}, 'slow');
+            };
+
+            $('#start').on('click', function () {
+                setInterval(repeat, 1500);
+            });
+
+            $('#stop').on('click', function () {
+                $('#balle').stop(false, true);
+                $('#balle').animate({left: '0'});
+            });
+        })
+    </script>
+</body>
+</html>

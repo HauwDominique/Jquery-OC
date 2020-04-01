@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>83-Création d'un plugin jquery : le plugin gis</title>
+</head>
+
+<body>
+<p class="grasItaliqueSouligne">Ce texte devrait apparaître en gras, italique, souligné après avoir cliqué sur le
+    bouton</p>
+<p>Ce texte devrait rester inchangé</p>
+<p class="grasItaliqueSouligne">Ce texte devrait apparaître en gras, italique, souligné après avoir cliqué sur le
+    bouton</p>
+<p>Ce texte devrait rester inchangé</p><br/>
+<button id="action">Cliquez ici pour utiliser le plugin gis</button>
+
+<script
+        crossorigin="anonymous"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<!--on appelle ici le plugin créé et stocké dans un fichier javascript-->
+<script src="js/gis.js"></script>
+
+<script>
+    $(function () {
+        //on utilise ici le plugin créé (gis)
+        $('#action').click(function () {
+            $('.grasItaliqueSouligne').gis();
+        });
+    })
+</script>
+
+</body>
+</html>

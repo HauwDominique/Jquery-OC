@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Evènement jeu de l'image</title>
+    <style type="text/css">
+        div {
+            width: 200px;
+            height: 200px;
+            overflow: scroll;
+            background-color: yellow;
+            border: 2px black solid;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="target" src="images/chat.jpg">
+
+    <div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </div>
+
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+
+        // dimension de la fenetre
+            var largeur = ($(window).width()) - 50;
+            var hauteur = ($(window).height()) - 50;
+
+        // Affichage de la première image
+            var p = $('#target').offset();
+            p.top = 100;
+            p.left = 100;
+
+            function movePicture() {
+                $('#target').offset(p);
+            };
+
+        // Gestion du clic et déplacement de l'image
+            $('#target').click(function () {
+                x = Math.floor(Math.random()*largeur);
+                y = Math.floor(Math.random()*hauteur);
+
+                // var p = $('#target').offset();
+                //on appelle la variable globale définie à l'extérieur de la fonction
+
+                p.top = y;
+                p.left = x;
+
+                // $('#target').offset(p);
+                //on appelle la fonction "movePicture" définie à l'extérieur de notre fonction
+                movePicture();
+            });
+
+        // Gestion du scroll sur la div
+
+            $('div').scroll(function () {
+                    alert('Utilisation de la roulette dans la div');
+                    });
+
+            // $(window).scroll(function() {
+            //     alert('Utilisation de la roulette dans le document');
+            // });
+        })
+    </script>
+</body>
+</html>

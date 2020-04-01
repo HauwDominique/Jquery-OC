@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Focus et Blur</title>
+</head>
+
+<body>
+    <form>
+        Cliquez sur les zones de texte<p>
+        <input type="text" class="f" id="Zone-de-texte-1"><p>
+        <input type="text" class="f" id="Zone-de-texte-2"><br />
+    </form><br />
+
+    Focus : <span id="resultat"></span><br />
+    Perte de focus : <span id="resultat2"></span>
+
+
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+
+            $('.f').focus(function () {
+               $('#resultat').text($(this).attr('id'));
+            });
+
+            $('.f').blur(function () {
+                $('#resultat2').text($(this).attr('id'));
+            });
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>55- agrandissement avec animation au survol</title>
+    <style type="text/css">
+        img{
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            /*width: 400px;*/
+            /*height: 200px;*/
+        }
+        #chien{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="chat" src="images/chat.jpg">
+    <img id="chien" src="images/chien.jpg">
+
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+
+            $('#chat').on('mouseenter', function () {
+                $(this).fadeOut(1500);
+                $('#chien').fadeIn(1500);
+            });
+
+            $('#chien').on('mouseleave', function () {
+                $(this).fadeOut(1500);
+                $('#chat').fadeIn('slow');
+            });
+
+
+        })
+    </script>
+</body>
+</html>

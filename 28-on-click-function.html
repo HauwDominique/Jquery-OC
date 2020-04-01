@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Evènement méthode NON traditionnelle</title>
+    <style>
+        .red {
+            border : solid 5px red;
+        }
+        #carre {
+            width:100px;
+            height: 100px;
+            background-color: #AEEE00;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="target" src="images/chat.jpg"><br />
+
+    <div id="carre"></div>
+
+<script src="jquery.js"></script>
+<script>
+    $(function () {
+
+        var $img = $('#target');
+
+        //on associe à plusieurs évènement, la même fonction
+        $('img').on('mouseenter mouseleave', function () {
+            $(this).toggleClass('red');
+        });
+
+        $('#carre').on('mouseenter mouseleave', function () {
+            $(this).toggleClass('red');
+        });
+
+        // ici chaque évènement à sa fonction
+        $img.on(
+            {
+                click: function () {
+                    $(this).css('border-color', 'blue');
+                },
+                dblclick: function () {
+                    $(this).css('border-color', 'green');
+                },
+                mouseleave: function () {
+                    $(this).css({'border-radius': '8px','width': '175px'});
+                }
+            }
+        );
+
+        $('#carre').on({
+            click: function () {
+                $(this).css({'background-color': 'red'});
+            },
+            dblclick: function () {
+                $(this).css({'border-radius': '20px'});
+            },
+            mouseleave:function () {
+                $(this).css({'border-radius': '50%'});
+            }
+        })
+
+
+    })
+</script>
+</body>

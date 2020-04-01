@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sélecteur dans un tableau</title>
+</head>
+<body>
+    <form>
+        <table border=1>
+            <tr><td></td><td>Salle 1</td><td>Salle 2</td></tr>
+            <tr><td>Lundi</td><td>X</td><td>X</td></tr>
+            <tr><td>Mardi</td><td></td><td></td></tr>
+            <tr><td>Mercredi</td><td>X</td><td></td></tr>
+            <tr><td>Jeudi</td><td></td><td>X</td></tr>
+            <tr><td>Vendredi</td><td>X</td><td>X</td></tr>
+        </table>
+    </form>
+
+
+<script src="jquery.js"></script>
+<script>
+    $(function () {
+        $('td').css('text-align', 'center');
+
+        $('td:first').css('background-color', 'yellow');
+        // $('tr:last').css('background-color', 'grey');
+        $('td:empty').css('background-color', 'pink');
+        $('tr:even').css('background-color', 'green');
+        // $('tr:gt(2)').css('background-color', 'purple');
+
+        //attention, ici démarre après l'index 1, et prend les 3 rangées suivantes
+        // $('tr:gt(1):lt(3)').css('background-color', 'grey');
+
+        // $('td:gt(5):lt(10)').css('background-color', 'cadetblue');
+
+        //toutes les lignes sauf la derniere
+        $('tr:not(tr:last)').css('background-color', 'blue');
+
+
+    });
+</script>
+</body>
+</html>

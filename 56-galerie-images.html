@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>56-Galerie d'image</title>
+    <style type="text/css">
+        .petit {
+            padding: 5px;
+            width:100px;
+            cursor: pointer;
+
+        }
+        .grand{
+            width: 300px;
+            /*border: solid black 1px;*/
+        }
+    </style>
+</head>
+<body>
+
+    <img src="images/chien.jpg" alt="" id="chien" class="petit" checked>
+    <img src="images/chat.jpg" alt="" id="chat" class="petit">
+    <img src="images/canard.jpg" alt="" id="canard" class="petit">
+    <img src="images/girafe.jpg" alt="" id="girafe" class="petit">
+    <img src="images/cheval.jpg" alt="" id="cheval" class="petit">
+
+    <img src="images/chien.jpg" alt="" class="grand">
+
+<script src="jquery.js"></script>
+<script>
+    $(function () {
+
+        $('.petit').css({'border' : 'solid white 4px'});
+        $('.petit:first').css({'border' : 'solid black 4px'});
+
+        $('.petit').on('click', function () {
+            $('img').css({'border-color' : 'white'});
+            $(this).css({'border-color' : 'black'});
+
+            var nom = $(this).attr('id');
+            $('.grand').fadeOut('slow', function () {
+                $(this).fadeIn('slow').attr('src', 'images/' + nom + '.jpg');
+            });
+
+        });
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>38-animation-en-cascade.html</title>
+    <style>
+        div{
+            width : 200px;
+            height: 150px;
+            background-color: #AEEE00;
+            border:solid 2px black;
+        }
+    </style>
+</head>
+<body>
+    <button id="affiche">Faire apparaître les images</button>
+    <button id="cache">Faire disparaître les images</button><br />
+    <img src="images/chien.jpg">
+    <img src="images/cheval.jpg">
+    <img src="images/chat.jpg">
+    <div></div>
+
+
+
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+
+            $('#affiche').on('click', function () {
+                $('img').first().show('slow', function showNextone() {
+                    $(this).next('img').show('slow', showNextone);
+                });
+                $('div').slideDown('slow');
+            });
+
+            $('#cache').on('click', function () {
+                $('img').first().hide('slow', function hideNextone() {
+                    $(this).next('img').fadeOut('slow', hideNextone);
+                });
+                $('div').slideUp('slow');
+            });
+
+
+
+        //    deplier et replier un élément
+
+        })
+    </script>
+</body>
+</html>

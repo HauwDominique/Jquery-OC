@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JQUERY SELECTEUR</title>
+</head>
+<body>
+    <div id="listes">
+        <ul id="ul1">
+            <li> Elément de liste 1
+                <ul id="ul2">
+                    <li> Enfant 1</li>
+                    <li> Enfant 2</li>
+                </ul>
+            </li>
+            <li> Elément de liste 2</li>
+            <li> Elément de liste 3</li>
+            <li> Elément de liste 4</li>
+        </ul>
+    </div>
+
+    <script src="jquery.js"></script>
+
+    <script>
+        $(function() {
+
+            $('li > ul').css('color', 'red');
+            $('li + li').css('font-weight', '700');
+            $('li:first-child').css('text-decoration', 'underline');
+            $('li:first').css('font-size', '1.5em');
+            $('li:last-child').css('text-decoration', 'underline dotted');
+            $('li:only-child').css('text-decoration', 'green wavy underline');
+            $('li:nth-child(2)').css('text-decoration', 'green wavy underline');
+
+        });
+    </script>
+</body>
+</html>

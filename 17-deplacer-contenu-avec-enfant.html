@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Déplacer du contenu avec ses enfants</title>
+</head>
+<body id="page17">
+    <h2>Lorem ipsum</h2>
+    <p id="un">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </p>
+    <hr>
+
+    <h2 id="trois">Liste à puces</h2>
+    <ul>
+        <li>Premier élément</li>
+        <li>Deuxième élément</li>
+        <li>Troisième élément</li>
+        <li>Quatrième élément</li>
+    </ul>
+    <hr>
+
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+            // Exercice 17
+            if ($('#page17').length > 0) {
+                $('ul').clone().insertBefore('h2:first');
+                $('<h1>Sommaire</h1>').insertBefore('h2:first');
+                $('h2').clone().insertAfter('h1');
+            }
+
+        })
+    </script>
+</body>
+</html>

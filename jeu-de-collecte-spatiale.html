@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Collecte spatiale !</title>
+    <link rel="stylesheet" href="css/jeu-de-collecte-spatiale.css">
+</head>
+
+<body>
+    <div id="result_box">Résultat :
+        <span id="resultCow" class="result">0</span> vaches attrapées -
+        <span id="resultCar" class="result">0</span> voitures détruites.
+    </div>
+    <div id="fond">
+        <img src="images/game-collecte/navette.png" id="navette">
+        <img src="images/game-collecte/vache.png" alt="" id="cow">
+        <img src="images/game-collecte/car.png" alt="" id="car">
+        <div id="gameOver">GAME OVER</div>
+    </div>
+
+    <button id="play">Play</button>
+    <button id="pause">Pause</button>
+    <button id="reset">Reset</button>
+
+
+    <audio preload="auto" id="musiqueFond" autoplay="autoplay" loop="loop">
+        <source src="music/electronic-senses-a-little-disagreement.mp3" type="audio/mp3">
+        <source src="music/electronic-senses-a-little-disagreement.mp3" type="audio/ogg">
+    </audio>
+    <audio preload="auto" id="boom">
+        <source src="beep.mp3" type="audio/mp3">
+        <source src="beep.ogg" type="audio/ogg">
+    </audio>
+    <audio preload="auto" id="meuh">
+        <source src="music/cow-Moo.mp3" type="audio/mp3">
+        <source src="music/cow-Moo.mp3" type="audio/ogg">
+    </audio>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous">
+    </script>
+    <script src="js/jeu-de-collecte-spatiale.js"></script>
+</body>
+</html>

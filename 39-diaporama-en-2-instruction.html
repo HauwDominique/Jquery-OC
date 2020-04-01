@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>39-diaporama-en-2-instruction</title>
+</head>
+<style type="text/css">
+    img { position: absolute; left: 0px; top: 0px; width:300px; height: 200px; }
+    #img1 {z-index: 1;}
+    #img2 {z-index: 2;}
+    #img3 {z-index: 3;}
+    #img4 {z-index: 4;}
+    #img5 {z-index: 5;}
+</style>
+
+<body>
+    <img src="images/chat.jpg" id="img5">
+    <img src="images/cheval.jpg" id="img4">
+    <img src="images/chien.jpg" id="img3">
+    <img src="images/canard.jpg" id="img2">
+    <img src="images/girafe.jpg" id="img1">
+
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+
+            $('img').first().fadeOut(2000, function suivante() {
+                $(this).next('img').fadeOut(2000, suivante);
+            });
+
+        })
+    </script>
+</body>
+</html>

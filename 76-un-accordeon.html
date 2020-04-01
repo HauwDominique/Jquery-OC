@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>76-un accordeon</title>
+    <link rel="stylesheet" href="css/all.css">
+</head>
+<body>
+
+<div id="accordeon">
+    <h3><a href="#">Titre du bloc 1</a></h3>
+    <div>Contenu du bloc 1</div>
+
+    <h3><a href="#">Titre du bloc 2</a></h3>
+    <div>Contenu du bloc 2</div>
+
+    <h3><a href="#">Titre du bloc 3</a></h3>
+    <div>Contenu du bloc 3</div>
+</div>
+
+<script
+        crossorigin="anonymous"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script
+        crossorigin="anonymous"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script>
+    $(function () {
+        $('#accordeon').accordion();
+
+    })
+</script>
+
+</body>
+</html>
+

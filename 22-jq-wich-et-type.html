@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Méthode witch, et type</title>
+</head>
+<body>
+
+    Cliquez sur l'image avec un des boutons de la souris.<br ></code>
+    <img id="target" src="images/chat.jpg"><br />
+    <span id="rapport"></span>
+
+
+<script src="jquery.js"></script>
+<script>
+    $(function () {
+        $('#target').mousedown(function (e) {
+            $('#target').css({'border': 'solid black 4px', 'border-radius': '8px'});
+            $('#rapport').html('Evènement :' + e.type + '. Bouton pressé : ' + e.which);
+        });
+    });
+</script>
+</body>
+</html>

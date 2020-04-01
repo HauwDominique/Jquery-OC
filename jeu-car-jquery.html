@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/jeu-car-jquery.css">
+    <title>Jeux vidéo voiture</title>
+</head>
+
+<body>
+
+    <h3 class="title"> Collisions : <span id="info">0</span></h3>
+
+    <div id="jeu">
+        <img id="fond1" class="fond" src="route.png">
+        <img id="fond2" class="fond" src="route.png">
+        <div id="vjBox">
+            <img id="vj" src="vj.png"> <!-- La voiture jaune -->
+            <img src="images/explosion.png" id="explosion">
+        </div>
+        <img id="vr" src="vr.png"> <!-- La voiture rouge -->
+        <h1 id="gameOver">Game  Over</h1>
+    </div>
+
+    <div id="buttonBox">
+        <button id="play">Play</button>
+        <button id="stop">Stop</button>
+        <button id="reset">Reset</button>
+    </div>
+
+
+    <audio preload="auto" id="son">
+        <source src="beep.mp3" type="audio/mp3">
+        <source src="beep.ogg" type="audio/ogg">
+    </audio>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+    <script   src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+              integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+              crossorigin="anonymous"></script>
+    <script src="js/jeu-car-jquery.js"></script>
+</body>
+</html>

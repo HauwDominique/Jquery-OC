@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>34-bis-Evenement-TP-perso</title>
+</head>
+
+<style>
+    div{
+        width:100px;
+        height: 100px;
+        border: solid black 2px;
+        text-align: center;
+        line-height: 100px;
+        margin: 1em .5em;
+        cursor: pointer;
+    }
+    button{
+        margin : .5em;
+    }
+    .circle{
+        border-radius: 50%;
+    }
+    .yellow{
+        background-color: yellow;
+    }
+</style>
+
+<body>
+
+<!--TODO
+    1 - Créer 1 div. Ajouter une classe avec jquery.
+      - au clic sur la div, créer un bouton A VOIR CAR IL FAUT UNE CREER UNE CLASSE AVEC UN INIT (VOIR TP TODOLIST)
+
+      - Créer 3 boutons qui appliqueront du code css au clic (bouton carré, bleu, rond)
+      - Créer un bouton qui reviendra à l'état initial à l'aide d'une délégation événementielle
+    -->
+
+    <div class="first"></div>
+    <button id="btn-rond">Rond</button>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous">
+    </script>
+
+    <script>
+        $(function () {
+
+            // 1-Ajout d'une class css à la div
+            $('.first').addClass('carre').text('cliquez ici');
+
+
+            // clonage d'un bouton et modification de son id
+            $('#btn-rond').clone().insertAfter('#btn-rond');
+            $('#btn-rond:nth-child(3)').attr('id', 'btn-carre').text('Carre');
+
+            $('#btn-carre').clone().insertAfter('#btn-carre').text('Cloner');
+            $('button:nth-child(4)').attr('id', 'btn-cloner');
+
+
+
+            $('#btn-rond').on('click', function () {
+                $('.first').removeClass('carre').addClass('circle');
+            });
+
+            $('#btn-carre').on('click', function () {
+                $('.first').removeClass('circle').addClass('carre');
+            });
+
+
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>19-Entourer des éléments</title>
+    <style type="text/css">
+        div { background: red;}
+    </style>
+</head>
+
+<body>
+    <h2 id="trois">Liste à puces</h2>
+    <ul>
+        <li>Premier élément</li>
+        <li>Deuxième élément</li>
+        <li>Troisième élément</li>
+        <li>Quatrième élément</li>
+    </ul>
+
+    <p id="firtsPara">Le texte du paragraphe</p>
+    <p class="paras">Paragraphe 1</p>
+    <p class="paras">Paragraphe 2</p>
+    <p class="paras">Paragraphe 3</p>
+    un texte isolé
+    <p class="paras">Paragraphe 4</p>
+    un autre texte isolé
+
+    <script src="jquery.js"></script>
+    <script>
+        $(function() {
+            // Insérer le code jQuery ici
+        });
+    </script>
+    </body>
+    </html>
+
+
+
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+            $('li').wrap('<i></i>');
+            // $('li').wrap('<font color="red"><b><i><u></u></i></b></font>');
+            $('li').css('color', 'blue');
+
+            $('#firtsPara').wrapInner('<i></i>');
+            $('.paras').wrapAll(('<div></div>'))
+        })
+    </script>
+</body>
+</html>

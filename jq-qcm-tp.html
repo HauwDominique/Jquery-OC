@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tp créer un QCM</title>
+</head>
+
+<body>
+    <form>
+        <a href="">Tester les réponses</a>
+
+        <div class="question">
+            <div class="texte">
+                <h2>Question 1</h2>
+                Le code jQuery s'exécute :<br>
+                <input type="radio" id="r1" name="q1">Dans le navigateur<br>
+                <input type="radio" id="r2" name="q1">Sur le serveur où est stocké le code<br>
+                <input type="radio" id="r3" name="q1">Tantôt dans le navigateur, tantôt sur le serveur<br>
+                <br><span class="reponse" id="reponse1">Le code jQuery n'est autre que du JavaScript. A ce titre, il s'exécute toujours sur les clients (ordinateurs, tablettes et téléphones) qui font référence à ce code via une page HTML. La bonne réponse est donc la première.</span>
+            </div>
+            <img id="img1" src="images/qcm/question.png" />
+        </div>
+
+        <div class="question">
+            <div class="texte">
+                <h2>Question 2</h2>
+                Lorsque l'on veut exécuter du code jQuery, attendre la disponibilité du DOM est :<br>
+                <input type="radio" id="r4" name="q2">Vital<br>
+                <input type="radio" id="r5" name="q2">Inutile<br>
+                <input type="radio" id="r6" name="q2">Parfois important, parfois sans importance<br>
+                <br><span class="reponse" id="reponse2">Il est impératif d'attendre la disponibilité du DOM avant d'exécuter du code jQuery. Sans quoi, ce code pourrait s'appliquer à un élément indisponible et provoquer un comportement inattendu, voire même un plantage du navigateur.</span>
+            </div>
+            <img id="img2" src="images/qcm/question.png" />
+        </div>
+
+        <div class="question">
+            <div class="texte">
+                <h2>Question 3</h2>
+                Pour chaîner deux méthodes jQuery :<br>
+                <input type="radio" id="r7" name="q3">Il faut les mettre l'une à la suite de l'autre en les séparant par une virgule<br>
+                <input type="radio" id="r8" name="q3">Il faut les mettre l'une à la suite de l'autre en les séparant par un point décimal<br>
+                <input type="radio" id="r9" name="q3">Il est impossible de chaîner deux méthodes jQuery<br>
+                <br><span class="reponse" id="reponse3">L'exécution d'un sélecteur jQuery produit un objet jQuery sur lequel il est possible d'appliquer une méthode jQuery. Cette méthode produit elle-même un objet jQuery. Il est donc possible de lui appliquer une autre méthode en utilisant le caractère de liaison habituel : le point décimal.</span>
+            </div>
+            <img id="img3" src="images/qcm/question.png" />
+        </div>
+    </form>
+
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+
+        // 1 - Dissimuler les réponses aux questions
+
+            $('.reponse').hide();
+
+
+        // 2 - Mettre en forme les éléments affichés sur l'écran
+
+            // $('a').clone().appendTo('form');
+            $('.question').css({
+                "display": "flex",
+                "justify-content": "space-between",
+                "align-items": "center",
+                "margin": ".8em",
+                "padding": "1em",
+                "width":"70%",
+                "border": "solid 3px black",
+                "background-color": "#1CFFAA"
+            });
+            $('img').css({"width": "4em", "height" :"4em"});
+
+            //deplacement de l'image dans son parent
+
+            // var question = $('.question');
+            // console.log(question);
+            //
+            // for(let i=0 ; i < question.length ; i++) {
+            //     console.log(question[i]);
+            //     // console.log($(question[i]).find('.texte'));
+            //
+            //     var img = $(question[i]).find('img')[0];
+            //     console.log(img);
+            //
+            //     $(question[i]).find('.texte').append(img);
+            // }
+
+
+
+            // Réagir au survol du lien « Tester les réponses
+
+            $('a').hover(
+
+                //lorsque l'on survol le lien
+                function() {
+                    $('.reponse').show();
+
+                    if($(':radio[id="r1"]:checked').val()) {
+                        $('#img1').attr('src', 'images/qcm/validate.png');
+                        $('#reponse1').css({"color" : "#055733", "font-weight" : "bold"});
+                    } else {
+                        $('#img1').attr('src', 'images/qcm/error.png');
+                        $('#reponse1').css({"color" : "red", "font-weight" : "bold"});
+                    }
+
+                    if($(':radio[id="r4"]:checked').val()) {
+                        $('#img2').attr('src', 'images/qcm/validate.png');
+                        $('#reponse2').css({"color": "#055733", "font-weight" : "bold"});
+                    } else {
+                        $('#img2').attr('src', 'images/qcm/error.png');
+                        $('#reponse2').css({"color" : "red", "font-weight" : "bold"});
+                    }
+
+                    if($(':radio[id="r8"]:checked').val()) {
+                        $('#img3').attr('src', "images/qcm/validate.png");
+                        $('#reponse3').css({"color": "#055733", "font-weight" : "bold"});
+                    } else {
+                        $('#img3').attr('src', 'images/qcm/error.png');
+                        $('#reponse3').css({"color" : "red", "font-weight" : "bold"});
+                    }
+                },
+                
+            //    lorsque le lien n'est plus survolé
+                function() {
+                    $('.reponse').hide();
+                    $('img').attr('src', 'images/qcm/question.png');
+                }
+            );
+
+
+
+
+
+
+
+        })
+    </script>
+
+</body>
+</html>

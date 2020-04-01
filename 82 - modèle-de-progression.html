@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>82 - modèle de progression</title>
+    <style>
+        img{
+            width:20px;
+        }
+        button{
+            margin:1em;
+        }
+    </style>
+</head>
+
+<body>
+<button id="easeOutElastic">Effet easeOutElastic</button>
+<button id="easeInOutBack">Effet easeInOutBack</button><br />
+<img src="images/balle-tennis.jpg" style="position: relative;">
+
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script
+        src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        crossorigin="anonymous"></script>
+<script>
+    $(function () {
+
+        $('#easeOutElastic').on('click', function () {
+            $('img').css('left', '0px');
+            $('img').animate({left: '+=200px'}, 3000, 'easeOutElastic');
+        });
+
+        $('#easeInOutBack').on('click', function () {
+            $('img').css('left', '0px');
+            $('img').animate({left: '+=200'}, 3000, 'easeInOutBack');
+        })
+    })
+</script>
+
+</body>
+</html>

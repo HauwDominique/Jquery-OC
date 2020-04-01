@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>60 - donner le focus à un élément :</title>
+</head>
+
+<body>
+    <span id="status">Cliquez sur un des éléments du formulaire</span><br /><br />
+    <form id="formulaire">
+        <input type="text" id="zone1"><br />
+        <input type="text" id="zone2"><br />
+        <input type="text" id="zone3"><br />
+        <textarea id="zone4"></textarea>
+        <button type="reset">reset</button>
+
+    </form>
+    <button id="effaceFormlaire">effaceFormulaire</button>
+
+    <button id="reload">Reload</button>
+
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+
+            var leFocus;
+            $('input, textarea').focus(function () {
+                leFocus = '#' + $(this).attr('id');
+                $(leFocus).css({'background-color': 'yellow'});
+            });
+            $('input, textarea').blur(function () {
+                $(this).css({'background-color': 'white'});
+            });
+
+        //suppression avec un bouton hors formulaire et pas de type reset
+            $('#effaceFormlaire').on('click', effaceFormulaire);
+
+            function effaceFormulaire(){
+                $('input, textarea')
+                    .not(':button, :submit, :reset, :hidden')
+                    .val('')
+                    .prop('checked', false)
+                    .prop('selected', false);
+            };
+
+        //    suppression du formulaire en rechargeant la page(si il n'y a qu'un formulaire dans la page
+            $('#reload').on('click', function () {
+               location.reload();
+            });
+        })
+</script>
+</body>
+</html>

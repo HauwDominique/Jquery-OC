@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>81 - animation des couleurs avec jquery UI</title>
+    <style>
+        #contenu {
+            border: 4px gray solid;
+            background-color: #aaeae1;
+            color: black;
+            width: 100px;
+            position: relative;
+        }
+
+        #contenu h3 {
+            margin: 0;
+            padding: 0.4em;
+            text-align: center;
+            background-color: #777;
+        }
+    </style>
+</head>
+
+<body>
+<div id="contenu">
+    <h3>Cliquez ici</h3>
+    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque
+    corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+    qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+</div>
+
+<script
+        crossorigin="anonymous"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script
+        crossorigin="anonymous"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script>
+    $(function () {
+
+            $('h3').on('click', function() {
+            $('#contenu').toggle(
+                function () {
+                    $('#contenu').animate({
+                        backgroundColor: '#fff',
+                        color: 'red',
+                        left: '+=200',
+                        width: 500
+                    }, 1000);
+                },
+                function () {
+                    $('#contenu').animate({
+                        backgroundColor: '#aaeae1',
+                        color: 'black',
+                        left: '-=200',
+                        width: 100
+                    }, 1000);
+                });
+        });
+    });
+</script>
+</body>
+</html>

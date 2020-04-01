@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>30-namespace pour méthode</title>
+    <style>
+        .size{
+            width:100px;
+            height: 100px;
+            border:solid black 2px;
+            margin:10px;
+        }
+        .circle{
+            background-color: yellow;
+            text-align: center;
+            line-height: 2em;
+            border-radius: 50%;
+        }
+        .rectangle{
+            background-color: aqua;
+            width : 200px;
+        }
+    </style>
+</head>
+<body>
+    <button id="activer">Intéragir</button>
+    <button id="desactiver">Désactiver le clic</button>
+    <div class="forme"></div>
+
+<script src="jquery.js"></script>
+<script>
+    $(function () {
+
+
+        // $('#activer').on({
+        //     click: function() {
+        //         $('#carre').addClass('size');
+        //         $('#activer').text('Double Cliquez');
+        //     },
+        //     dblclick: function() {
+        //             $('#carre').addClass('circle').text('cliquer ici');
+        //     },
+        // });
+
+        // $('.circle').on('click', function () {
+        //     $(this).hide();
+        // })
+
+        //    création d'un namespace INTERAGIR
+
+        $('#activer').on('click.interagir', function () {
+            $('.forme').addClass('size').text('Click dans ce carré');
+        });
+
+        $('.forme').on('click.interagir', function () {
+            $('.forme').addClass('rectangle').text('');
+        });
+
+        $('.forme').on('mouseleave.interagir', function () {
+            $(this).removeClass('size rectangle');
+        });
+
+        $('.forme').off('mouseleave.interagir');
+
+
+    })
+</script>
+</body>
+</html>

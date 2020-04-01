@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sélecteur élément particulier</title>
+</head>
+<body>
+    <h1>Titre de niveau 1</h>
+    <h2>Titre de niveau 2</h2>
+    <h3>Titre de niveau 3</h3>
+    <p>Un paragraphe de texte</p>
+    <div>Texte dans une balise div</div>
+
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+            $('div').hide();
+            $(':header').css('color', 'red');
+            $('div:hidden').show();
+            $(':header:not(h1)').hide();
+
+
+        });
+    </script>
+</body>
+</html>

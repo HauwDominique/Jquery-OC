@@ -1,0 +1,65 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+#result_box {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    width: 804px;
+    background-color: #B0E79F;
+    margin-left: .35em;
+}
+
+.result{
+    display: inline-block;
+    color:#FFFFFF;
+    padding: .35em;
+}
+
+#resultCow{
+    color:#025312;
+}
+
+#resultCar{
+    color:#E70E2C;
+}
+
+#fond{
+    background-image: url("../images/game-collecte/fond.png");
+    background-repeat: repeat;
+    width: 800px;
+    height: 600px;
+    margin: 0 .5em;
+    border:solid black 2px;
+    position:relative;
+}
+#navette{
+    position:absolute;
+    top:240px;
+    left : 300px;
+    z-index: 300;
+}
+#cow, #car{
+    display:none;
+    position:absolute;
+}
+#gameOver{
+    font-size: 6em;
+    color: #ffffff;
+    font-weight: bold;
+    display: none;
+    position: absolute;
+    top: 200px;
+    left:100px;
+
+}
+button{
+    font-size: 1.5em;
+    color:#FFFFFF;
+    padding:.5em;
+    width:5em;
+    background-color: darkblue;
+    margin:.5em;
+}

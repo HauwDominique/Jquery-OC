@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>51 - Supprimer des espaces dans une chaine</title>
+</head>
+
+<body>
+    Tapez du texte dans la zone de texte en le faisant commencer et/ou finir par des espaces, puis cliquez sur le bouton.<br><br>
+    <input type="text" id="texte" />
+    <button id="action">Cliquez ici</button>
+    <pre id="resultat"></pre>
+
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+            $('#action').click(function() {
+                var leTexte = $('#texte').val();
+                $('#resultat').html('Texte original           : "' + leTexte + '"' +
+                    '<br>Après la fonction trim() : "' + $.trim(leTexte) + '"');
+            });
+        })
+    </script>
+</body>
+</html>

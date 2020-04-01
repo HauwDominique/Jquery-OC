@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>32-Trigger</title>
+</head>
+<body>
+
+Cliquez sur l'image<br />
+<img src="images/chien.jpg"><br />
+<span id='message'></span><br />
+<button>Cliquez ici</button>
+
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+</script>
+
+<script>
+    $(function () {
+
+        // $('img').click(function () {
+        //     $('#message').text('image cliquée').fadeIn(1000).fadeOut(1000);
+        // });
+
+    // On applique un trigger sur le bouton associé à l 'événement click. Lorsqu'on clic sur le bouton
+    // cela simule le click sur l'image (dans la fonction on cible l'imag, et son événement
+    //     $('button').click(function () {
+    //         $('img').trigger('click');
+    //     })
+
+
+    //    trigger avec condition
+
+        $('img').click(function(event,texte) {
+            if (texte == undefined){
+                texte = "par vous";
+            }
+            $('#message').text('L\'image a été cliquée ' + texte).fadeIn(1000).fadeOut(1000);
+        });
+
+        $('button').click(function() {
+            $('img').trigger('click', 'par jQuery');
+        });
+
+
+    });
+</script>
+</body>
+</html>

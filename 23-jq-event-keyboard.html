@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Evènement du clavier</title>
+    <style type="text/css">
+        #lumiere {
+            width: 100px;
+            height: 20px;
+            background-color: white; }
+    </style>
+</head>
+
+<body>
+    <div id="lumiere"></div>
+    <form>
+        Laissez aller votre imagination : saisissez quelques mots<br />
+        <textarea id="saisie"></textarea>
+    </form><br />
+    Caractère saisi : <span id="unelettre"></span>
+
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+
+            $('#saisie').focus();
+
+            // Mise en couleur de la div
+            $('#saisie').keydown(function () {
+                $('#lumiere').css({'background-color': 'green', 'width': '10em'});
+            });
+
+            $('#saisie').keyup(function () {
+                $('#lumiere').css({'background-color': 'white'});
+            })
+
+            // Récupération de la valeur de la touche du clavier
+            $('#saisie').keypress(function (e) {
+                // on récupère la valeur saisie et on la "transforme" en caractère
+                var C = String.fromCharCode(e.which);
+               $('#unelettre').text(C + ' avec un ' + e.type);
+            });
+
+        })
+    </script>
+</body>
+</html>

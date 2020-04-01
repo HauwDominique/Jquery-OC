@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>les pages : load et unload</title>
+    <style>
+        img{
+            width:20em;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <a href="">
+        <img src="images/canard.jpg" id="image1">
+    </a>
+    <br />
+    <a href="http://www.siteduzero.com">Cliquez ici pour aller sur le Site du Zéro</a>
+    <span id="txt"></span>
+
+<script src="jquery.js"></script>
+<script>
+    $(function () {
+        // alert('le DOM est chargé');
+
+    //   méthode LOAD
+    //     $(window).load(function () {
+    //         alert('la page est entièrement chargée');
+    //     });
+
+        // $('#image1').load(function () {
+        //     alert(this.width + ' x ' + this.height);
+        // });
+
+        var taille = $('#image1').width();
+        console.log(taille);
+
+        $('#image1').mouseenter(function () {
+            $('#txt').text('taille image : ' + taille);
+        });
+        $('#image1').mouseleave(function () {
+            $('#txt').text('');
+        });
+
+    // méthode UNLOAD
+    //     $(window).unload(function () {
+    //         alert('Vous changez de page ; la page est déchargée.');
+    //     });
+
+
+    })
+</script>
+</body>
+</html>

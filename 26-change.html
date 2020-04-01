@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Change()</title>
+</head>
+
+<body id="page26">
+    <form>
+        Sélectionnez une valeur dans la liste déroulante
+        <br>
+        <br>
+        <select>
+            <option>J'aime jQuery</option>
+            <option>J'adore jQuery</option>
+            <option>Je raffole de jQuery</option>
+            <option>jQuery ? Jamais entendu parler !</option>
+        </select>
+    </form><br />
+
+    <span id="resultat"></span><br />
+
+<script src="jquery.js"></script>
+<script>
+    $(function () {
+
+        if ($('#page26').length > 0) {
+            $('select').change(function () {
+                $('#resultat').text('Vous venez de sélectionner : ' + $(this).val());
+            });
+        }
+
+    });
+</script>
+</body>
+</html>

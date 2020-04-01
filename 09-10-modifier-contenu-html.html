@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Modifier contenu Html</title>
+
+    <style type="text/css">
+        .rouge { color: red; }
+        .vert { color: green; }
+        .petit { font-size: 100%; }
+        .grand {font-size: 250%; }
+
+        span {display: block}
+    </style>
+</head>
+
+<body>
+    <span id="jean" class="rouge grand">Jean</span>
+    <span id="pierre">Pierre</span>
+    <span id="paul" class="vert grand">Paul</span>
+    <span id="julia">Julia</span>
+    <span id="eric" class="vert">Eric</span>
+    <span id="kevin" >Kévin</span>
+
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+
+            $('#julia').addClass('rouge');
+            $('#julia').addClass(('vert grand'));
+
+            // $('#eric').removeClass('vert').addClass('rouge');
+            // $('#paul').removeClass('vert grand').addClass('rouge petit');
+            // $('#paul').toggleClass('vert').toggleClass('rouge').toggleClass('grand').toggleClass('petit');
+            // $('#eric').toggleClass('vert').toggleClass('rouge').toggleClass('grand').toggleClass('petit');
+
+            $('#paul').removeClass('grand vert');
+
+            if($('#jean').hasClass('rouge')) {
+                alert('Jean a la classe rouge')
+            } else {
+                alert('Jean n\'a pas la classe rouge');
+            };
+
+            if( $('#paul').is('.vert.grand')){
+                alert('Paul et vert et grand');
+            }
+            else
+            {
+                alert('Paul n\'est pas vert et grand');
+            }
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>74- Déplacer des éléments</title>
+        <style>
+            div{
+                width: 250px;
+                height: 250px;
+                padding: .5em;
+                border : 1px solid black;
+            }
+        </style>
+</head>
+<body>
+
+<span>Déplacez les images et le div comme vous l'entendez</span><br/><br/>
+<img src="images/cheval.jpg">
+<img src="images/girafe.jpg">
+<img src="images/chien.jpg">
+<div>Déplacez-moi</div>
+<script
+        crossorigin="anonymous"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        src="https://code.jquery.com/jquery-3.4.1.min.js">
+</script>
+<script
+        crossorigin="anonymous"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js">
+</script>
+<script>
+    $(function () {
+        $('img, div').draggable();
+    })
+</script>
+</body>
+</html>

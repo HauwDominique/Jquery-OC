@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>47-manipuler-la-file-d-attente</title>
+    <style>
+        button{
+            margin:.5em;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="ajouter">Ajouter animation</button>
+    <button id="annuler">Annuler la file d'attente</button><br />
+    <button id="remplacer">Remplacer la file d'attente</button>
+    <button id="retour">Ajouter une fonction de retour</button><br />
+    <button id="vider">Vider la file d'attente</button><br />
+
+    <img src="images/chien.jpg" id="chien" style="position: relative;">
+    <img src="images/chat.jpg" id="chat" style="position: relative;">
+
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+
+            $('#ajouter').on('click', function () {
+                $('#chat').toggle(2000)
+                        .queue(function () {
+                            $('#chien').animate({left: '+=100'}, 'slow')
+                                    .animate({top: '+=200'}, 'slow')
+                                    .animate({left: '-=100'}, 'slow')
+                                    .animate({top: '-=200'}, 'slow');
+                        });
+            });
+
+            $('#annuler').on('click', function () {
+                $('img').clearQueue();
+            });
+
+            $('#remplacer').on('click', function () {
+                $('#chien').css({'left': 200, 'top': 200});
+                $('#chien').queue(function () {
+                    $(this).animate({top: '-=200'}, 'slow')
+                            .animate({top: '+=200', 'left': '-=200'}, 'slow')
+                            .animate({top: '-=200'}, 'slow');
+                    $(this).dequeue();
+                });
+            });
+
+            $('#retour').on('click', function () {
+                $('img').queue(function () {
+                    alert('animation terminée');
+                    $(this).dequeue();
+                })
+            });
+
+            $('#vider').on('click', function () {
+                $('img').clearQueue();
+            })
+
+
+
+        })
+    </script>
+</body>
+</html>

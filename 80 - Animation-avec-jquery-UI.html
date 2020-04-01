@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>80 - Animation avec jquery UI </title>
+    <link href="css/theme.css" rel="stylesheet">
+    <style type="text/css">
+        .container{
+            border:solid black 1px;
+            width:200px;
+            text-align: center;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .contenu {
+            width: 140px;
+            height: auto;
+            border: 1px gray solid;
+            background-color: #aaeae1;
+        }
+
+        .contenu h3 {
+            margin: 0;
+            padding: 0.2em;
+            text-align: center;
+            background-color: #777;
+        }
+
+        #contain {
+            padding: .5em;
+            font-size: .8em;
+        }
+
+        button {
+            margin: .5em;
+            background-color: #007fff;
+            border-radius: 5px;
+            padding: .5em;
+            font-weight: bold;
+            color: #FFFFFF;
+            border: solid black 1px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <button id="start-1">Play animation</button>
+    <div class="contenu" id="contenu-1" style="width: 200px;">
+        <h3>puff</h3>
+        <p id="contain">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+            deleniti atque
+            corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in
+            culpa
+            qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+    </div>
+</div>
+<div class="container">
+    <button id="start-2">Play animation</button>
+    <div class="contenu" id="contenu-2" style="width: 200px;">
+        <h3>explode</h3>
+        <p id="contain">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+            deleniti atque
+            corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in
+            culpa
+            qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+    </div>
+</div>
+<div class="container">
+    <button id="start-3">Play animation</button>
+    <div class="contenu" id="contenu-3" style="width: 200px;">
+        <h3>pulsate</h3>
+        <p id="contain">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+            deleniti atque
+            corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in
+            culpa
+            qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+    </div>
+</div>
+<div class="container">
+    <button id="start-4">Play animation</button>
+    <div class="contenu" id="contenu-4" style="width: 200px;">
+        <h3>fold</h3>
+        <p id="contain">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+            deleniti atque
+            corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in
+            culpa
+            qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+    </div>
+</div>
+
+
+
+<script
+        crossorigin="anonymous"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script
+        crossorigin="anonymous"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script>
+    $(function () {
+        $('#start-1').on('click', function () {
+            $('#contenu-1').toggle('puff', 1000);
+        });
+        $('#start-2').on('click', function () {
+            $('#contenu-2').toggle('explode', 1000);
+        });
+        $('#start-3').on('click', function () {
+            $('#contenu-3').effect('pulsate', 1000);
+        });
+        $('#start-4').on('click', function () {
+            $('#contenu-4').toggle('fold', 1000);
+        })
+    })
+</script>
+</body>
+</html>

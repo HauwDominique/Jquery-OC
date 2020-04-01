@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>62 - fonction : $.map()</title>
+</head>
+
+<body>
+
+    <div id="zero"></div><br>
+    <div id="un"></div><br /><br />
+    <div id="deux"></div><br>
+    <button id="copie1">Prénoms en majuscules</button>
+    <button id="copie2">Index et prénoms en minuscules</button>
+
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+
+            var tableau = ['Luca', 'Emma', 'Mathis', 'Jade', 'Léa', 'Enzo', 'Chloé'];
+            var tableau2;
+
+            $('#zero').text('tableau initiale : ' + tableau.join(', '));
+
+
+            $('#copie1').on('click', function () {
+                tableau2 = $.map(tableau, function (el, ind) {
+                    return(el.toUpperCase());
+                });
+                $('#un').text('Prénom en majuscule : ' + tableau2.join(', '));
+            });
+
+            $('#copie2').on('click', function () {
+                tableau2 = $.map(tableau, function (el, ind) {
+                    return(ind + ' : ' + el.toLocaleLowerCase());
+                });
+                $('#deux').text('Index et prénoms en minuscules : ' + tableau2.join(' / '));
+            });
+        })
+    </script>
+
+</body>
+</html>

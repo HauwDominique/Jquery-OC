@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>46 - Etat de la file d’attente</title>
+</head>
+<body>
+
+</body>
+
+    <button id="droite">Droite</button>
+    <button id="gauche">Gauche</button>
+    <button id="bas">Bas</button>
+    <button id="haut">Haut</button>
+    <button id="etatFile">Etat de la file d'attente</button><br />
+    <span id="infos">Cliquez sur Etat de la file d'attente</span><br /><br />
+    <img src="images/girafe.jpg" style="position: relative;">
+
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+
+            $('#droite').on('click', function () {
+                $('img').animate({left: '+=50'}, 2000);
+            });
+
+            $('#gauche').on('click', function () {
+                $('img').animate({left: '-=50'}, 2000);
+            });
+
+            $('#bas').on('click', function () {
+                $('img').animate({top: '+=50'}, 2000);
+            });
+
+            $('#haut').on('click', function () {
+                $('img').animate({top: '-=50'}, 1500);
+            });
+
+            $('#etatFile').on('click', function () {
+                var n = $('img').queue();
+                $('#infos').text("nombre d'animation dans la file d'attente : " + n.length);
+            })
+
+        })
+    </script>
+</html>

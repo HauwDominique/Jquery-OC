@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Travail avec valeurs stockées dans des éléments</title>
+</head>
+<body>
+    <h1>Documentation jQuery</h1>
+    <p><a href='http://docs.jquery.com'>Documentation officielle</a></p>
+    <p><a href='http://api.jquery.com'>API jQuery</a></p>
+
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+            // var linkFirst = $('p:first').text();
+            // var linLast = $('p:last').text();
+            // alert(linkFirst);
+            // alert(linLast);
+
+            $('p:first').html('<a href=\'http://google.com\'>Documentation officielle Google</a>');
+            $('a:first').text('Google');
+            $('p').text(function(index, value) {
+                alert('Paragraphe ' + (index+1) + ' : ' + value);
+            })
+
+        });
+    </script>
+</body>
+</html>
