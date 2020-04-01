@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Premier pas avec ajax</title>
+
+  <style type="text/css">
+    div {
+      width: 400px;
+      height: 300px;
+      float: left;
+      margin: 5px;
+    }
+
+    #premier {
+      background-color: #F6E497;
+    }
+    img {
+      width:400px;
+    }
+
+    #troisieme {
+      background-color: #CAF1EC;
+    }
+
+    #quatrieme {
+      background-color: #F1DBCA;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="majPremier">Mise à jour première zone</button>
+  <button id="majDeuxieme">Mise à jour deuxième zone</button><br /><br />
+  <div id="premier">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  </div>
+
+  <div id="deuxieme">
+    <img src="images/lapin-nain-femelle.jpg" id="deuxiemeImg">
+  </div>
+
+  <div id="troisieme">
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+    sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </div>
+
+  <div id="quatrieme">
+    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
+    eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+  </script>
+  <script>
+    $(function () {
+
+      $('#majPremier').on('click', function () {
+        $('#premier').load('maj1.html', function () {
+          alert('la 1ere zone a été mise à jour');
+        });
+      });
+
+      $('#majDeuxieme').on('click', function () {
+        $('#deuxieme').load('maj2.html', function () {
+          alert('la deuxième zone a été mise à jour.');
+          });
+        });
+
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>73b-Utiliser pluging Rss</title>
+    <link rel="stylesheet" href="css/FeedEk.css">
+    <style>
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: #efefef;
+            font-size: 13px;
+            line-height: 20px !important;
+            /* line-height: 1.5em; */
+        }
+
+        .rssDiv {
+            float: left;
+            padding-right: 35px;
+        }
+        li{
+            background-color: #FFFFFF;
+            padding:.5em;
+        }
+
+        .feedEkList {
+            width: 400px !important;
+            list-style: none;
+        }
+        .itemTitle{
+            font-size: 1.3em;
+        }
+        .itemTitle>a{
+            text-decoration: none;
+        }
+        .itemDate{
+            font-style: italic;
+            text-decoration:underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Rss BFM TV</h1>
+    <div id="divRss"></div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+    </script>
+    <script src="js/FeedEk.min.js"></script>
+    <script>
+        $(function () {
+            $('#divRss').FeedEk({
+                FeedUrl: 'https://www.bfmtv.com/rss/info/flux-rss/flux-toutes-les-actualites/',
+                MaxCount: 5,
+                // ShowDesc: true,
+                // ShowPubDate: true,
+                // DescCharacterLimit: 100,
+                // TitleLinkTarget: '_blank',
+                DateFormat: 'dd/MM/yyyy',
+                DateFormatLang: 'fr'
+            });
+
+
+            // voir pour supprimer les balises <br> qui sont construite dans le dom à l'appel du plugin
+            $('br').hide();
+        })
+    </script>
+</body>
+
+</html>

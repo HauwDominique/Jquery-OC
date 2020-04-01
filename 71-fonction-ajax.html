@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>71-fonction AJAX</title>
+</head>
+<body>
+    <button id="action">Lancer la requête AJAX</button><br />
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+</script>
+<script>
+    $(function () {
+        $('#action').click(function() {
+          $.ajax({
+            type: 'GET',
+            url: 'proverbes.php?l=7',
+            timeout: 3000,
+            success: function(data) {
+              alert(data); },
+            error: function() {
+              alert('La requête n\'a pas abouti'); }
+          });    
+        });
+      });
+</script>
+</body>
+</html>

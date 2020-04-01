@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>73-utiliser un plugin Jquery</title>
+    <link rel="stylesheet" href="css/wColorPicker.css">
+    <style>
+        .wColorPicker{
+            /* width:400px; */
+        }
+        #wcp1{
+            width:200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wcp1">
+        <input id="wcp-input" type="text" /><br />
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
+    </script>
+    <script src="js/wColorPicker.min.js"></script>
+    <script>
+        $(function () {
+            $("#wcp1").wColorPicker({
+                initColor: '#ccf',
+                // mode: 'click',
+                generateButton  :  true ,
+                onSelect: function (color) {
+                    $('body').css('background', color);
+                },
+                onMouseover: function (color) {
+                    $('#wcp-input').css('background', color).val(color);
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

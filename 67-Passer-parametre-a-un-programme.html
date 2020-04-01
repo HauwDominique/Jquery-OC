@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>67-Passer-parametre-a-un-programme</title>
+</head>
+
+<body>
+    <input type="text" id="ref">
+    <button id="action">Afficher</button><br />
+    <div id="r">Entrez un nombre compris entre 1 et 10 pour afficher un proverbe chinois</div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+    </script>
+    <script>
+        $(function () {
+            $('#action').click(function () {
+                // ajout gif pour afficher un loader
+                $('#r').html('<img src="images/ajax-loader.gif">');
+
+                var param = 'l=' + $('#ref').val();
+                $('#r').load('proverbes.php', param);
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>73-C-plugin-menu-deroulant plusieurs niveaux</title>
+    <link rel="stylesheet" href="css/dropdownPlain.css">
+    <style>
+        .dropdown>li>a{
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="dropdown">
+        <li><a href="#">Actualités</a>
+            <ul class="sub_menu">
+                <li><a href="#">Jeux Vidéo</a>
+                    <ul>
+                        <li><a href="#">Microsoft</a>
+                            <ul>
+                                <li><a href="#">Next Gen</a></li>
+                                <li><a href="#">Xbox One</a></li>
+                                <li><a href="#">PC</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Sony</a></li>
+                        <li><a href="#">Nintendo</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Cinéma</a>
+                    <ul>
+                        <li><a href="#">Français</a></li>
+                        <li><a href="#">Etranger</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Musique</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Commentaires</a>
+            <ul class="sub_menu">
+                <li><a href="#">Positifs</a></li>
+                <li><a href="#">Négatifs</a></li>
+            </ul>
+        </li>
+        <li><a href="#">A propos de</a></li>
+    </ul>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
+    </script>
+    <script src="js/jquery.dropdownPlain.js"></script>
+</body>
+
+</html>

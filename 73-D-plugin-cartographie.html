@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>73-D-plugin-cartographie</title>
+</head>
+
+<body>
+
+    <div id="map1" style="width: 800px; height: 600px; border: 1px solid #777; overflow: hidden;"></div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript"
+        src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAA6cQIrMEc9zlaKBjWiPM5rxSjlBXfTSDcGsB79vzL90uiOHMpbBRa1FFoX2YfuQNFvFKxQtpz0ZCeuw&amp;hl=fr">
+    </script>
+    <script type="text/javascript" src="jquery.gmap.min.js"></script>
+
+    <script>
+        $(function () {
+                    $('#map1').gMap();
+                }
+    </script>
+</body>
+
+</html>

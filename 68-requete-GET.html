@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>68-requete GET</title>
+</head>
+
+<body>
+    <button id="action">Lancer la requête HTTP GET</button><br />
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+    </script>
+    <script>
+        $(function () {
+            $('#action').click(function() {
+          $.get('proverbes.php?l=9', function(data) {
+            alert(data);
+          });    
+        });  
+
+        });
+    </script>
+
+</body>
+
+</html>

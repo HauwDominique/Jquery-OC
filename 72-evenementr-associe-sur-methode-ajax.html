@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>72 - Evénements associés à une requête AJAX</title>
+</head>
+
+<body>
+    <button id="action">Lancer la requête AJAX</button><br /><br />
+    <div id="donnees" style="background-color: yellow"></div><br />
+    <div id="message"></div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
+    </script>
+
+    <script>
+        $(function () {
+            erreur = 'ERREEUR'
+
+            $('#action').click(function () {
+                console.log('toto');
+                $(document).ajaxStart(function () {
+                    console.log('ajaxStart');
+                    $('#message').html('Méthode ajaxStart exécutée</br>');
+                });
+                $(document).ajaxSend(function (ev, req, options) {
+                    $('#message').append('Méthode ajaxSend executée, ');
+                    $('#message').append('nom du fichier : ' + options.url + '</br>')
+                });
+                $(document).ajaxStop(function () {
+                    $('#message').append('Méthode ajaxStop exécutée<br>');
+                });
+                $(document).ajaxSuccess(function (ev, req, options) {
+                    $('#message').append('Méthode ajaxSuccess exécutée<br>');
+                });
+                $(document).ajaxComplete(function (ev, req, options) {
+                    $('#message').append('Méthode ajaxComplete exécutée<br>');
+                });
+                $(document).ajaxError(function (ev, req, options, erreur) {
+                    $('#message').append('Méthode ajaxError exécutée, ');
+                    $('#message').append('erreur : ' + erreur + '<br>');
+                });
+                $('#donnees').load('affiche2.html');
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+fieldset{
+    width:400px;
+    background-color: #E0DB09;
+}
+
+#conversation{
+    width:380px;
+    height: 150px;
+    margin-bottom:5px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-color: #F9F8BA;
+}
+
+#nom{
+    width:100px;
+}
+.name{
+    font-family: cursive;
+    font-style:bold;
+    text-decoration: underline;
+}
+
+#message{
+    width: 200px;
+}
