@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Boutons On-Off et switch</title>
+    <link href="css/On-Off-and-button-switch.css" rel="stylesheet">
+
+</head>
+<body>
+
+<section>
+    <div class="on-off">
+        <h2>Boutons On-Off avec une condition</h2>
+        <button class="on" id="btn_OnOff">On</button>
+    </div>
+    <div class="on-off">
+        <h2>Boutons On-Off avec un toogleClass</h2>
+        <button class="on" id="btn_toogle">On</button>
+    </div>
+
+    <div class="on-off">
+        <h2>bouton switch</h2>
+        <div class="switch_box switch_off">
+            <div class="switch" id="btn_switch"></div>
+        </div>
+    </div>
+</section>
+
+<section>
+
+</section>
+
+<section>
+    <div class="on-off menu_container">
+        <h2>Menu déroulant</h2>
+        <button class="btn_menu">Menu</button>
+        <ul class="menu_box">
+            <li class="item">Conserves</li>
+            <li class="item">Boissons</li>
+            <li class="item">Produits laitiers</li>
+            <li class="item">Pates et riz</li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <div class="on-off animate-container">
+        <h2>Défilement de texte</h2>
+        <button id="animate" class="on">Start</button>
+        <p class="text">Ceci est un texte qui défile pour faire plaisir à mon fiston.</p>
+    </div>
+</section>
+
+<script
+        crossorigin="anonymous"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+    $(function () {
+
+        $('#btn_OnOff').on('click', function () {
+            if ($(this).hasClass('on')) {
+                $(this).removeClass('on').addClass('off')
+                $(this).text('Off');
+            } else {
+                $(this).removeClass('off').addClass('on');
+                $(this).text('On');
+            }
+        });
+
+
+        $('#btn_toogle').on('click', function () {
+            $(this).toggleClass('off');
+            var text = $(this).text();
+            $(this).text(
+                text == 'On' ? 'Off' : 'On'
+            );
+
+        });
+
+
+        $('.switch_box').on('click', function () {
+            $(this).toggleClass('switch_off')
+            $(this).toggleClass('switch_on');
+        });
+
+        $('.btn_menu').on('click', function () {
+            $('.menu_box').slideToggle('slow');
+        });
+
+
+        $('#animate').on('click', function () {
+            $('.text').addClass('animate-text');
+        });
+
+    })
+</script>
+</body>
+</html>

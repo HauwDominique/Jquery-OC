@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Exo Mathieu button et rectangle</title>
+    <link href="css/exo-Mathieu.css" rel="stylesheet">
+</head>
+<body>
+
+
+<div class="grow-text">
+    Ce texte grandit au clic et rétrécit au clic suivant
+</div>
+
+<button class="grow10px btn btn-primary">height +10px</button>
+<button class="to-green btn btn-success">rectangle en vert</button>
+<button class="initial-colors btn btn-danger">couleurs initiales</button>
+<button class="hide-rect btn btn-warning">hide rectangle</button>
+<button class="show-rect btn btn-info">show rectangle</button>
+
+<div class="box">30px</div>
+
+<script
+        crossorigin="anonymous"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" rel="stylesheet">
+<script>
+    $(function () {
+
+        $box = $('.box');
+
+        $growText = $('.grow-text');
+        fontSize = $growText.css('font-size');
+        $growText.on('click', function () {
+            $(this).toggleClass('double-Size')
+        });
+
+        $('.grow10px').on('click', function () {
+            boxHeight = $box.height();
+            // console.log($box);
+
+            if (boxHeight < 100) {
+                boxHeight += 10;
+                $box.css('height', boxHeight + 'px');
+            } else {
+                $box.css('height', '30px');
+            };
+            $box.text(boxHeight + 'px');
+        });
+
+        $('.to-green').on('click', function () {
+            $box.addClass('to-green');
+        });
+
+        $('.initial-colors').on('click', function () {
+            $box.removeClass('to-green');
+        });
+
+        $('.hide-rect').on('click', function () {
+            $box.hide();
+        });
+
+        $('.show-rect').on('click', function () {
+            $box.show();
+        })
+
+
+    })
+</script>
+</body>
+</html>

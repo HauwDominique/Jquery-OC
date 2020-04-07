@@ -1,0 +1,24 @@
+.grow-text{
+    padding:1em;
+    cursor: pointer;
+}
+.double-Size{
+    font-size: 32px;
+}
+
+.btn{
+    margin:.5em;
+    background-color: #4EBAFF;
+}
+.box{
+    width : 120px;
+    height: 30px;
+    background-color: blueviolet;
+    margin:.5em;
+    text-align: center;
+    font-weight: bold;
+    color: #ffffff;
+}
+.to-green{
+    background-color: darkgreen;
+}
